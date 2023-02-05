@@ -9,7 +9,7 @@ namespace Play.Catalog.Service.Settings
 
         // Also define a property for our connection string. We use string interpolation for this.
         // Below is whats called an expression body definition so it's a property defined directly by the value on the right side.
-        public string ConnectionString => $"mongdb://{Host}:{Port}";
+        public string ConnectionString => $"mongodb://{Host}:{Port}";
         
     }
 }
