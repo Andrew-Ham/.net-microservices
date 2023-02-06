@@ -1,3 +1,6 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Play.Catalog.Service.Repositories;
 using Play.Catalog.Service.Settings;
@@ -10,6 +13,8 @@ var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).
 // AddSingleton allows us to register a type or an object and makes sure there is ONLY ONE instance of it in the entire microservice.
 builder.Services.AddSingleton(serviceProvider => {
     var mongoDbSettings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+    BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+    BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
     var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
     var database = mongoClient.GetDatabase(serviceSettings.ServiceName);
     return database;
