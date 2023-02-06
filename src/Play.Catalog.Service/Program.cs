@@ -2,6 +2,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Repositories;
 using Play.Catalog.Service.Settings;
 
@@ -20,13 +21,11 @@ builder.Services.AddSingleton(serviceProvider => {
     return database;
 });
 
-// Register ItemsRepository Dependency
-// As you can tell the below AddSingleton is different from the previous one above.
-// It is different because the one above we are explicitly constructing our mongoClient and the IMongoDatabase before registering it with the service container
-// In the case below, we are just declaring what is the type that we want to register and which interface implements it. And the ASP.NET Core runtime
-// will construct that instance whenever it is needed.
-builder.Services.AddSingleton<IItemsRepository, ItemsRepository>();
 
+builder.Services.AddSingleton<IRepository<Item>>(serviceProvider => {
+    var database = serviceProvider.GetService<IMongoDatabase>();
+    return new MongoRepository<Item>(database, "items");
+});
 
 
 builder.Services.AddControllers(options => {options.SuppressAsyncSuffixInActionNames = false;});

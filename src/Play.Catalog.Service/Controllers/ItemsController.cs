@@ -10,10 +10,10 @@ namespace Play.Catalog.Service.Controllers
     public class ItemsController : ControllerBase
     {
         // Dependency Injection - IItemsRepository and we don't create an instance so we dont do ->  = new()
-        private readonly IItemsRepository itemsRepository;
+        private readonly IRepository<Item> itemsRepository;
 
         // It is time to introduce a constructor for this controller and here we inject the ItemRepository dependency
-        public ItemsController(IItemsRepository itemsRepository)
+        public ItemsController(IRepository<Item> itemsRepository)
         {
             this.itemsRepository = itemsRepository;
         }
