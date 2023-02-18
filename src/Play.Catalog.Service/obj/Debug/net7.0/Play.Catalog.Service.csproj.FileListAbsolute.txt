@@ -44,3 +44,5 @@ C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Servi
 C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Service\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Service\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Service\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Service\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Minkyu\Desktop\C#\.NETMicroservices\play.catalog\src\Play.Catalog.Service\bin\Debug\net7.0\play.common.dll
